@@ -9,7 +9,7 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #0d0d0d;
+  background: #0d0d0d; /* This sets the solid dark background */
   color: #fff;
   font-family: "Poppins", sans-serif;
 }
@@ -41,11 +41,6 @@ html, body {
   font-weight: 600;
 }
 
-.subtitle {
-  color: #e0b36a;
-  font-size: 1.1rem;
-}
-
 .tagline {
   font-family: "Noto Serif Devanagari", serif;
   color: #d8c497;
@@ -55,75 +50,49 @@ html, body {
 
 /* ---------- Search Box ---------- */
 .search-container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 2rem auto;
+  width: 90%; 
+  max-width: 1000px; 
+  margin: 2rem auto; 
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   gap: 1rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50px;
   padding: 1rem 1.5rem;
   backdrop-filter: blur(8px);
-  box-shadow: 0 0 15px rgba(255, 150, 45, 0.411);
+  box-shadow: 0 0 15px rgba(255, 153, 51, 0.3);
 }
 
-.search-container input {
-  flex: 1; 
-  min-width: 250px;
-}
-
-.search-container select {
-  min-width: 200px;
-}
-
-/* --- UPDATE: Prettier styling for inputs and select dropdown --- */
 .search-container input,
 .search-container select {
   padding: 0.7rem 1rem;
-  border: 1px solid transparent; 
+  border: 1px solid transparent;
   border-radius: 30px;
   outline: none;
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   font-size: 1rem;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  transition: all 0.3s ease;
 }
 
-/* --- NEW: Style placeholder text --- */
-.search-container input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.search-container input {
+    flex-grow: 1;
+    min-width: 200px;
 }
 
-/* --- NEW: Add a focus glow to input and select --- */
+.search-container select {
+    min-width: 200px;
+}
+
 .search-container input:focus,
 .search-container select:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ff9933;
   box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
-  border-color: rgba(255, 153, 51, 0.7);
 }
 
-/* --- NEW: Custom arrow for the select dropdown --- */
-.search-container select {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ff9933' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.7rem center;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 3rem; 
-}
-
-/* --- UPDATE: Styling for the dropdown options list --- */
-.search-container select option {
-  background: #1c140b;
-  color: #ffe4b5;
-  padding: 10px; 
-}
-
-/* --- UPDATE: Prettier button styling --- */
 .search-container button {
   background: linear-gradient(90deg, #ff9933, #ffcc33);
   border: none;
@@ -133,18 +102,24 @@ html, body {
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 15px rgba(255, 153, 51, 0.2);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 .search-container button:hover {
   background: linear-gradient(90deg, #ffa01c, #91ff01);
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(145, 255, 1, 0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-.search-container button:active {
-  transform: scale(1.02);
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9933' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
 }
 
 /* ---------- Results ---------- */
@@ -155,6 +130,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex-grow: 1; /* Ensures main content pushes footer down */
 }
 
 .result-item {
@@ -168,6 +144,8 @@ html, body {
 
 .result-item:hover {
   background: rgba(255, 153, 51, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .result-item a {
@@ -175,6 +153,7 @@ html, body {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .result-item a:hover {
@@ -185,6 +164,17 @@ html, body {
 .result-item p {
   font-size: 0.95rem;
   color: #ccc;
+  margin-top: 0.5rem;
+}
+
+.category-tag {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    background-color: rgba(255, 153, 51, 0.2);
+    color: #ffcc80;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
 }
 
 /* ---------- Footer ---------- */
@@ -204,7 +194,72 @@ footer {
   width: 100%;
 }
 
-/* ---------- Responsive (Mobile) ---------- */
+/* ---------- Page Viewer Modal ---------- */
+.viewer-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.viewer-content {
+  background-color: #1e1e1e;
+  width: 90%;
+  height: 90%;
+  max-width: 1400px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #2a1f14;
+  border-bottom: 2px solid #ff9933;
+  color: #fff;
+}
+
+#viewer-title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0.5rem;
+}
+
+.close-btn:hover {
+  color: #ff9933;
+}
+
+#viewer-iframe {
+  flex-grow: 1;
+  border: none;
+  background-color: #fff;
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .brand h1 {
     font-size: 1.8rem;
@@ -212,15 +267,13 @@ footer {
 
   .search-container {
     flex-direction: column;
-    padding: 1rem;
-    border-radius: 30px;
+    border-radius: 25px;
   }
 
   .search-container input,
   .search-container select,
   .search-container button {
     width: 100%;
-    min-width: unset; 
   }
 }
 

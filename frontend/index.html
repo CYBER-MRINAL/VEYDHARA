@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VEYDHARA – The Bharatiya Search</title>
-  <link rel="stylesheet" href="style.css" />
+  <!-- Appended '?v=1.1' to force the browser to reload the stylesheet -->
+  <link rel="stylesheet" href="style.css?v=1.1" />
   <link rel="icon" sizes="100x100" href="assets/VEYDHARA.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Serif+Devanagari:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -37,6 +38,17 @@
     <div class="footer-line"></div>
     <p>🇮🇳 Made in Bharat with Pride | © 2025 VEYDHARA</p>
   </footer>
+
+  <!-- Page Viewer Modal -->
+  <div id="page-viewer" class="viewer-modal" style="display: none;">
+    <div class="viewer-content">
+      <div class="viewer-header">
+        <span id="viewer-title"></span>
+        <button id="close-viewer-btn" class="close-btn">&times;</button>
+      </div>
+      <iframe id="viewer-iframe" sandbox="allow-same-origin"></iframe>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

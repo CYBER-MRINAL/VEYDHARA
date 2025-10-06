@@ -52,6 +52,28 @@ def search():
     results = [{"url": r[0], "title": r[1], "snippet": r[2], "category": r[3]} for r in rows]
     return jsonify(results)
 
+# --- NEW: Endpoint to get page content ---
+# This retrieves the full HTML of a crawled page from the database.
+# Assumes you have a 'content' column in your 'pages' table.
+@app.route("/page", methods=["GET"])
+def get_page_content():
+    url = request.args.get("url", "").strip()
+    if not url:
+        return jsonify({"error": "URL parameter is required"}), 400
+
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row # Allows accessing columns by name
+    c = conn.cursor()
+
+    c.execute("SELECT content FROM pages WHERE url = ?", (url,))
+    row = c.fetchone()
+    conn.close()
+
+    if row and row["content"]:
+        return jsonify({"content": row["content"]})
+    else:
+        return jsonify({"error": "Page content not found in database"}), 404
+
 # --- Serve frontend files ---
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
