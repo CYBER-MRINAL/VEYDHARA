@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VEYDHARA</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" sizes="70x70" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/OMSWASTRA_WITHOUT_BACKGORUND_2.png/250px-OMSWASTRA_WITHOUT_BACKGORUND_2.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEYDHARA – The Bharatiya Search</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" sizes="100x100" href="assets/VEYDHARA.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Noto+Serif+Devanagari:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1> VEYDHARA (वैधारः) </h1>
+  <div id="background-overlay"></div>
+
+  <header class="header">
+    <div class="brand">
+      <img src="assets/VEYDHARA.png" alt="VEYDHARA-LOGO" class="logo" />
+      <div>
+        <h1>VEYDHARA (वैधारः)</h1>
+        <p class="tagline">ज्ञानं परमं बलम् — Knowledge is the Supreme Power</p>
+      </div>
+    </div>
   </header>
 
   <main>
-    <div class="search-bar">
-      <input type="text" id="query" placeholder="Search..." autofocus>
+    <section class="search-container">
+      <input type="text" id="query" placeholder="Search with security..." />
       <select id="category">
         <option value="">All Categories</option>
-        <!-- Populated dynamically from backend -->
       </select>
-      <button id="searchBtn">Search</button>
-    </div>
+      <button id="searchBtn" class="search-box">Search</button>
+    </section>
 
-    <div id="results" class="results"></div>
+    <section id="results" class="results"></section>
   </main>
 
   <footer>
-    <p>⚡ Made by love of INDIA </p>
+    <div class="footer-line"></div>
+    <p>🇮🇳 Made in Bharat with Pride | © 2025 VEYDHARA</p>
   </footer>
 
   <script src="script.js"></script>

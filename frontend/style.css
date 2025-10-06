@@ -1,111 +1,226 @@
-/* Reset */
+/* ---------- Global Layout ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body */
-body {
-  background: #121212;
-  color: #e0e0e0;
-  min-height: 100vh;
+html, body {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Header */
-header {
+/* ---------- Header ---------- */
+.header {
   text-align: center;
-  padding: 2rem;
-  background: #1e1e1e;
-  border-bottom: 2px solid #333;
-}
-header h1 {
-  font-size: 2rem;
-  color: #4cafef;
+  padding: 2rem 1rem;
 }
 
-/* Search bar */
-.search-bar {
+.brand {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 100px;
+  height: 90px;
+  filter: drop-shadow(0 0 8px #ff9933);
+}
+
+.brand h1 {
+  font-size: 2.2rem;
+  color: #ff9933;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #e0b36a;
+  font-size: 1.1rem;
+}
+
+.tagline {
+  font-family: "Noto Serif Devanagari", serif;
+  color: #d8c497;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ---------- Search Box ---------- */
+.search-container {
+  width: 90%;
+  max-width: 1000px;
   margin: 2rem auto;
-  width: 90%;
-  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(255, 150, 45, 0.411);
 }
 
-.search-bar input,
-.search-bar select,
-.search-bar button {
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #444;
-  font-size: 1rem;
-  background: #1e1e1e;
+.search-container input {
+  flex: 1; 
+  min-width: 250px;
+}
+
+.search-container select {
+  min-width: 200px;
+}
+
+/* --- UPDATE: Prettier styling for inputs and select dropdown --- */
+.search-container input,
+.search-container select {
+  padding: 0.7rem 1rem;
+  border: 1px solid transparent; 
+  border-radius: 30px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.search-bar input {
-  flex: 1;
+/* --- NEW: Style placeholder text --- */
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.search-bar button {
-  background: #4cafef;
+/* --- NEW: Add a focus glow to input and select --- */
+.search-container input:focus,
+.search-container select:focus {
+  box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+  border-color: rgba(255, 153, 51, 0.7);
+}
+
+/* --- NEW: Custom arrow for the select dropdown --- */
+.search-container select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ff9933' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.7rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 3rem; 
+}
+
+/* --- UPDATE: Styling for the dropdown options list --- */
+.search-container select option {
+  background: #1c140b;
+  color: #ffe4b5;
+  padding: 10px; 
+}
+
+/* --- UPDATE: Prettier button styling --- */
+.search-container button {
+  background: linear-gradient(90deg, #ff9933, #ffcc33);
   border: none;
+  border-radius: 30px;
+  color: #000;
+  padding: 0.7rem 1.5rem;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(255, 153, 51, 0.2);
 }
 
-.search-bar button:hover {
-  background: #2196f3;
+.search-container button:hover {
+  background: linear-gradient(90deg, #ffa01c, #91ff01);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(145, 255, 1, 0.3);
 }
 
-/* Results */
+.search-container button:active {
+  transform: scale(1.02);
+}
+
+/* ---------- Results ---------- */
 .results {
-  width: 90%;
-  max-width: 900px;
-  margin: auto;
+  max-width: 950px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .result-item {
-  background: #1e1e1e;
+  background: rgba(255, 255, 255, 0.05);
   padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  border: 1px solid #333;
-  transition: 0.3s;
+  border-radius: 12px;
+  border-left: 4px solid #ff9933;
+  border-right: 4px solid #ff9933;
+  transition: 0.3s ease;
 }
 
 .result-item:hover {
-  border-color: #4cafef;
+  background: rgba(255, 153, 51, 0.1);
 }
 
 .result-item a {
-  font-size: 1.2rem;
-  color: #4cafef;
+  color: #ffb84d;
   text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .result-item a:hover {
+  color: #fff3d0;
   text-decoration: underline;
 }
 
 .result-item p {
-  margin-top: 0.5rem;
   font-size: 0.95rem;
   color: #ccc;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
-  margin-top: auto;
-  padding: 1rem;
   text-align: center;
+  padding: 1rem 0;
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: auto;
   font-size: 0.9rem;
-  background: #1e1e1e;
-  border-top: 2px solid #333;
+  color: #c8c8c8;
 }
+
+.footer-line {
+  height: 3px;
+  background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+/* ---------- Responsive (Mobile) ---------- */
+@media (max-width: 768px) {
+  .brand h1 {
+    font-size: 1.8rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 30px;
+  }
+
+  .search-container input,
+  .search-container select,
+  .search-container button {
+    width: 100%;
+    min-width: unset; 
+  }
+}
+

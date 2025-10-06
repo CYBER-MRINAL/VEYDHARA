@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const category = categorySelect.value;
 
     if (!query) {
-      resultsDiv.innerHTML = "<p>Please enter a search term.</p>";
+      resultsDiv.innerHTML = "<p> Null search... Enter somthing to search... </p>";
       return;
     }
 
@@ -62,4 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
   queryInput.addEventListener("keypress", e => {
     if (e.key === "Enter") search();
   });
+});
+
+document.addEventListener('contextmenu', function(event) {
+  
+  event.preventDefault();
+
 });

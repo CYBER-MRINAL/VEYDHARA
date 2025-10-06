@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="mandala-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffcc66" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff9933" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="240" fill="none" stroke="url(#mandala-glow)" stroke-width="2" />
+  <g stroke="rgba(255,153,51,0.4)" stroke-width="1.5" fill="none">
+    <circle cx="256" cy="256" r="200"/>
+    <circle cx="256" cy="256" r="150"/>
+    <circle cx="256" cy="256" r="100"/>
+    <path d="M256 56 L256 456 M56 256 L456 256 M126 126 L386 386 M386 126 L126 386" />
+  </g>
+  <circle cx="256" cy="256" r="6" fill="#ff9933"/>
+</svg>
+
