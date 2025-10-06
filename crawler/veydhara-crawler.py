@@ -45,7 +45,7 @@ def save_page(url: str, title: str, snippet: str, category: str):
     conn.commit()
     print(f"[OK] Saved: {url}")
 
-def crawl_domain(domain: str, category: str, max_pages: int = 50):
+def crawl_domain(domain: str, category: str, max_pages: int = 10):
     """Crawl a domain (up to max_pages) and save results."""
     visited = set()
     queue = deque([f"https://{domain}"])
@@ -88,7 +88,7 @@ def crawl_domain(domain: str, category: str, max_pages: int = 50):
 def run_crawler():
     for category, domains in categories.items():
         for domain in domains:
-            crawl_domain(domain, category, max_pages=50)
+            crawl_domain(domain, category, max_pages=10)
 
 if __name__ == "__main__":
     run_crawler()

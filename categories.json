@@ -1,6 +1,6 @@
 {
-  "social-media": ["youtube.com","snapchat.com","pinterest.com","facebook.com", "instagram.com", "twitter.com","web.whatsapp.com","whatsapp.com"],
-  "technology-news": ["digit.in","techradar.com","techcrunch.com", "wired.com", "arstechnica.com"],
+  "social-media": ["youtube.com","snapchat.com","pinterest.com","facebook.com", "instagram.com", "twitter.com","web.whatsapp.com","whatsapp.com","linkedin.com"],
+  "technology-news": ["digit.in","techradar.com","techcrunch.com", "wired.com", "arstechnica.com","github.com"],
   "shopping": ["tatacliq.com","amazon.in","flipkart.com","meesho.com","myntra.com","lenskart.com","nykaa.com","bigbasket.com","ajio.com"],
   "education": ["mit.edu", "coursera.org", "khanacademy.org","pw.live","vedantu.com","udemy.com","aakashdigital.com","allen.ac.in","unacademy.com","byjus.com","khanacademy.org","khanglobalstudies.com"],
   "operating system": ["kali.org","parrotsec.org","garudalinux.org","ubuntu.com","blackarch.org","archlinux.org","microsoft.com","fedoraproject.org","manjaro.org","cachyos.org","debian.org","endeavouros.com","linuxmint.com","system76.com","archcraft.io","rhinolinux.org","athenaos.org"]
