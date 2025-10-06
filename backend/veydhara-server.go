@@ -41,7 +41,7 @@ func init() {
 	var err error
 	baseDir, err = os.Getwd()
 	if err != nil {
-		log.Fatalf("Failed to get working directory: %v", err)
+		log.Fatalf(" WORKING DIRECTORY NOT FOUND :> %v", err)
 	}
 
 	dbPath = filepath.Join(baseDir, "../database/search.db")
@@ -60,14 +60,14 @@ func init() {
 
 	db, err = sql.Open("sqlite3", dbPath)
 	if err != nil {
-		logger.Fatalf("Failed to open database: %v", err)
+		logger.Fatalf(" FAILED TO OPEN DATABASE :> %v", err)
 	}
 	db.SetMaxOpenConns(10)
 	db.SetMaxIdleConns(5)
 
 	printBanner()
 	showAvailableCategories()
-	color.New(color.FgHiGreen).Println("✅ Initialization completed successfully.")
+	color.New(color.FgHiGreen).Println(" [^_^]> INITALIZATION SUCCESSFUL BOSS")
 }
 
 // --- /categories endpoint ---
@@ -227,24 +227,24 @@ func logError(context string, err error) {
 
 func printBanner() {
 	color.New(color.FgHiMagenta, color.Bold).Println("\n───────────────────────────────────────────────")
-	color.New(color.FgHiWhite, color.Bold).Println("    🚀 SEARCH ENGINE BACKEND SERVER (Go)")
+	color.New(color.FgHiWhite, color.Bold).Println("    🚀 VEDHARA BACKEND SERVER ")
 	color.New(color.FgHiMagenta, color.Bold).Println("───────────────────────────────────────────────")
 }
 
 func showAvailableCategories() {
 	data, err := os.ReadFile(catPath)
 	if err != nil {
-		logWarn("Unable to read categories.json")
+		logWarn(" FAILED TO READ CATAGORIES :-( ")
 		return
 	}
 
 	var categories map[string]interface{}
 	if err := json.Unmarshal(data, &categories); err != nil {
-		logWarn("Unable to parse categories.json")
+		logWarn(" FAILED TO PHASE CATAGORIES :-( ")
 		return
 	}
 
-	color.New(color.FgHiGreen).Println("📂 Available Categories:")
+	color.New(color.FgHiGreen).Println(" 📂 AVALIABLE CATAGORIES :> ")
 	for k := range categories {
 		color.New(color.FgWhite).Printf("   - %s\n", k)
 	}
@@ -260,13 +260,13 @@ func main() {
 	http.HandleFunc("/", serveFrontend)
 
 	addr := "0.0.0.0:5000"
-	color.New(color.FgHiBlue, color.Bold).Printf("\n🌐 Server running at: http://%s\n", addr)
-	color.New(color.FgHiCyan).Printf("🧠 Debug mode: %v\n", debugMode)
-	color.New(color.FgHiWhite).Println("Logs stored at:", logPath)
+	color.New(color.FgHiBlue, color.Bold).Printf("\n 🌐 SERVER IS ONLINE AT :> http://%s\n", addr)
+	color.New(color.FgHiCyan).Printf(" 🧠 DEBUG-MODE :> %v\n", debugMode)
+	color.New(color.FgHiWhite).Println(">> LOGS ARE STORED HERE :> ", logPath)
 	color.New(color.FgHiMagenta).Println("───────────────────────────────────────────────")
 
 	if err := http.ListenAndServe(addr, nil); err != nil {
-		logError("Server failed", err)
+		logError(">> Server failed B-( ", err)
 	}
 }
 
